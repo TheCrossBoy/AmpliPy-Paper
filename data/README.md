@@ -7,5 +7,5 @@ s3://ucsd-all/210924_A01535_0019_BHT7MHDSX2/210924_A01535_0019_BHT7MHDSX2_result
 Run simulations:
 
 ```bash
-for n in 100 1000 10000 100000 1000000 ; do mkdir -p n$n && for r in $(seq -w 1 10) ; do ../scripts/run_subsample.sh reads.fastq.gz $n reference.fas reference.fas.mmi primers.bed n$n/n$n.r$r.zip $RANDOM ; done ; done
+for p in 3 4 6 8 10 12 16 ; do mkdir -p p$p && for n in 100 1000 10000 100000 1000000 ; do mkdir -p p$p/n$n && for r in $(seq -w 1 10) ; do ../scripts/run_subsample.sh reads.fastq.gz $n reference.fas reference.fas.mmi primers.bed p$p/n$n/p$p.n$n.r$r.zip $RANDOM $p ; done && echo "Completed p $p n $n" ; done ; done
 ```
